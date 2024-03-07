@@ -8,23 +8,22 @@ const computerSumAlert = document.getElementById("computer-sum")
 //Creare array vuoto
 const userNumbers = []
 const computerNumbers = []
-let userSum = 0
-let computerSum = 0
 resultContainer.addEventListener('click', function () {
+    let userSum = 0
+    let computerSum = 0
     for (let iterations = 0; iterations <= 6; iterations++) {
         //Ad ogni iterazione creare un numero random da 1 a 6 con la formula math.random()
         const randomUserNumber = Math.floor(Math.random() * 6) + 1
         //Pushare i numeri random nell'array
-        userNumbers.push(randomUserNumber)
+        userNumbers[iterations] = randomUserNumber
 
     }
+    
     //Somma dei numeri generati da 1 a 6 per 7 iterazioni
     for (let i = 0; i < userNumbers.length; i++) {
         userSum += userNumbers[i]
         
     }
-    console.log(userNumbers)
-    console.log("la somma è " + userSum)
     userSumAlert.innerHTML = `${userSum}`
 
 
@@ -32,7 +31,7 @@ resultContainer.addEventListener('click', function () {
         //Ad ogni iterazione creare un numero random da 1 a 6 con la formula math.random()
         const randomComputerNumber = Math.floor(Math.random() * 6) + 1
         //Pushare i numeri random nell'array
-        computerNumbers.push(randomComputerNumber)
+        computerNumbers[iterations] = randomComputerNumber
     }
     //Somma dei numeri generati da 1 a 6 per 7 iterazioni
     for (let i = 0; i < computerNumbers.length; i++) {
@@ -40,8 +39,6 @@ resultContainer.addEventListener('click', function () {
         
         
     }
-    console.log(computerNumbers)
-    console.log("la somma è " + computerSum)
     computerSumAlert.innerHTML = `${computerSum}`
 //Stabilire il vincitore, in base a chi fa il punteggio più alto.
 if (userSum < computerSum) {
@@ -57,3 +54,4 @@ resultContainer.appendChild(resultAlert);
 
 //Stampare i numeri
 //Fai tutti questi passaggi per 2 volte dove la prima volta i dati corrisponderanno all'utente e gli altri dati al pc   
+
